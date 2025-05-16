@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "nodemon": "^3.1.10"
+  },
+  "scripts": {
+  "start": "nodemon app.js",
+  "babel": "babel public/employees.jsx --out-file public/employees.js --watch"
+}
+
+}
