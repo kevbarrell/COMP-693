@@ -1,7 +1,7 @@
 import express from 'express';
 import {} from 'dotenv/config';
 import routes from './routes/routes.js';
-import './db/connect.js';
+import connectDB from './db/connect.js';
 import bodyParser from 'body-parser';
 
 const app = express();
@@ -17,10 +17,11 @@ const init = async () => {
     try {
         await connectDB(process.env.MONGO_URI);
         console.log('Connected to the database');
+        app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
     } catch (error) {
         console.error('Database connection failed:', error);
         process.exit(1);
     }
 };
 
-app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
+init().catch(err => console.error('Initialization failed:', err));
